@@ -5,27 +5,29 @@ struct IdleView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "Monitoring Aktif")
+            StatusChip(title: "Monitoring Aktif", tone: .success)
+        } hero: {
             ScreenHeader(
                 title: "Mode Idle",
-                subtitle: "Sistem siap memberi nudge ketika dibutuhkan"
+                subtitle: "Sistem siap memberi nudge saat sinyal stres meningkat"
             )
-
+        } content: {
             CalmCard {
-                Text("Baseline HR")
+                Text("Baseline Heart Rate")
                     .font(AppTheme.Typography.subtitle)
-                    .foregroundStyle(AppTheme.ColorToken.textSecondary)
+                    .foregroundStyle(AppTheme.ColorToken.textTertiary)
                 Text("\(appModel.baselineHR) bpm")
                     .font(AppTheme.Typography.metric)
                     .foregroundStyle(AppTheme.ColorToken.textPrimary)
             }
-
-            CalmPrimaryButton(title: "Simulasi Trigger") {
-                appModel.markTriggered()
-            }
-
-            CalmSecondaryButton(title: "Lihat Ringkasan") {
-                appModel.openSummary()
+        } actions: {
+            VStack(spacing: AppTheme.Spacing.sm) {
+                CalmPrimaryButton(title: "Simulasi Trigger") {
+                    appModel.markTriggered()
+                }
+                CalmSecondaryButton(title: "Lihat Ringkasan") {
+                    appModel.openSummary()
+                }
             }
         }
     }

@@ -5,12 +5,19 @@ struct TriggeredView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "Stress Signal", tone: AppTheme.ColorToken.warning)
+            StatusChip(title: "Stress Signal", tone: .warning)
+        } hero: {
             ScreenHeader(
                 title: "Perlu Jeda",
-                subtitle: "Sinyal stres terdeteksi. Ambil 60 detik untuk regulasi napas."
+                subtitle: "Ambil satu menit untuk breathing flow yang lebih tenang."
             )
-
+        } content: {
+            CalmCard(variant: .compact) {
+                Text("Prioritas sekarang: turunkan intensitas respons stres secara perlahan.")
+                    .font(AppTheme.Typography.subtitle)
+                    .foregroundStyle(AppTheme.ColorToken.textSecondary)
+            }
+        } actions: {
             CalmPrimaryButton(title: "Mulai Breathing 60s") {
                 appModel.startBreathing()
             }

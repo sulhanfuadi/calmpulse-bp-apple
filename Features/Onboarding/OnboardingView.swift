@@ -5,18 +5,19 @@ struct OnboardingView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "Wellness Companion")
+            StatusChip(title: "Wellness Companion", tone: .accent)
+        } hero: {
             ScreenHeader(
                 title: "CalmPulse BP",
-                subtitle: "Bukan alat diagnosis atau layanan darurat"
+                subtitle: "Pause kecil yang membantu kamu regulasi stres harian."
             )
-
-            CalmCard {
-                Text("Bantu kamu pause sejenak saat sinyal stres meningkat, lalu refleksi singkat setelahnya.")
+        } content: {
+            CalmCard(variant: .elevated) {
+                Text("Bukan alat diagnosis atau layanan darurat. Gunakan sebagai pendamping self-awareness.")
                     .font(AppTheme.Typography.subtitle)
                     .foregroundStyle(AppTheme.ColorToken.textSecondary)
             }
-
+        } actions: {
             CalmPrimaryButton(title: "Setuju & Mulai") {
                 appModel.goToIdle()
             }
