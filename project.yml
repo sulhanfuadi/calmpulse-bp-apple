@@ -8,7 +8,7 @@ configs:
   Release: release
 targets:
   CalmPulseBP:
-    type: application.watchapp2
+    type: application
     platform: watchOS
     deploymentTarget: "10.0"
     sources:
