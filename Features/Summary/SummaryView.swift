@@ -13,6 +13,10 @@ struct SummaryView: View {
             )
         } content: {
             CalmCard(variant: .elevated) {
+                Text("Metrik harian")
+                    .font(AppTheme.Typography.subtitle(compact: false))
+                    .foregroundStyle(AppTheme.ColorToken.textTertiary)
+
                 HStack {
                     metricItem(title: "Trigger", value: "\(appModel.sessions.count)")
                     Spacer(minLength: AppTheme.Spacing.lg)
@@ -20,7 +24,10 @@ struct SummaryView: View {
                 }
             }
         } actions: {
-            CalmPrimaryButton(title: "Kembali Idle") {
+            CalmPrimaryButton(
+                title: "Kembali Idle",
+                accessibilityHint: "Kembali ke mode monitoring"
+            ) {
                 appModel.restartFlow()
             }
         }
@@ -29,12 +36,13 @@ struct SummaryView: View {
     private func metricItem(title: String, value: String) -> some View {
         VStack(alignment: .leading, spacing: AppTheme.Spacing.xxs) {
             Text(title)
-                .font(AppTheme.Typography.subtitle)
+                .font(AppTheme.Typography.subtitle(compact: false))
                 .foregroundStyle(AppTheme.ColorToken.textTertiary)
             Text(value)
-                .font(AppTheme.Typography.metric)
+                .font(AppTheme.Typography.metric(compact: false))
                 .foregroundStyle(AppTheme.ColorToken.textPrimary)
         }
-        .accessibilityElement(children: .contain)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text("\(title) \(value)"))
     }
 }
