@@ -274,3 +274,8 @@ Current UI baseline now includes:
 ## 17) Monochrome Refactor v2
 
 Current UI direction is **Monochrome + Red/Green Signal System** with strict **No Scroll Screen Rule** for watch-first usability.
+
+
+## 18) Apple-Native Cleanup
+
+UI now follows strict **No Decorative UI**, **No-Scroll Watch Rule**, and **Monochrome + Signal Color Discipline**.

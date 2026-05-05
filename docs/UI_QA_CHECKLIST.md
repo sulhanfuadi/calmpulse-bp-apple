@@ -1,19 +1,14 @@
-# UI QA Checklist (41mm / 45mm)
+# UI QA Checklist — No Scroll
 
-## Core Fit
-- [ ] Onboarding fits 1 page (no scroll)
-- [ ] Idle fits 1 page (no scroll)
-- [ ] Triggered fits 1 page (no scroll)
-- [ ] Breathing fits 1 page (no scroll)
-- [ ] Reflection fits 1 page (no scroll)
-- [ ] Summary fits 1 page (no scroll)
+## 41mm / 45-46mm
+- [ ] Onboarding fits 1 page
+- [ ] Idle fits 1 page
+- [ ] Triggered fits 1 page
+- [ ] Breathing fits 1 page
+- [ ] Reflection fits 1 page
+- [ ] Summary fits 1 page
 
-## Visual Semantics
-- [ ] Red appears only for alert context
-- [ ] Green appears only for calm/success context
-- [ ] Monochrome remains dominant overall
-
-## Interaction
-- [ ] Primary action always most visible
-- [ ] Bottom action stays visible on both 41mm and 45mm
-- [ ] Flow remains: Onboarding → Idle → Triggered → Breathing → Reflection → Summary → Idle
+## Signal color checks
+- [ ] Red appears only in alert context
+- [ ] Green appears only in success context
+- [ ] Neutral screens stay monochrome
