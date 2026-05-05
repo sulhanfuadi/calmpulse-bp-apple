@@ -15,7 +15,7 @@ struct ReflectionView: View {
                 CalmButton(title: "Calmer", tone: .primary, hint: "Catat lebih tenang") {
                     appModel.openSummary()
                 }
-                CalmButton(title: "Still Tight", tone: .secondary, hint: "Catat masih tegang") {
+                CalmButton(title: "Tense", tone: .secondary, hint: "Catat masih tegang") {
                     appModel.openSummary()
                 }
                 CalmButton(title: "Skip", tone: .ghost, hint: "Lewati refleksi") {

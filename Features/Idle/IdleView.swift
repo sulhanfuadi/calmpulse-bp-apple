@@ -5,11 +5,11 @@ struct IdleView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "IDLE", tone: .success)
+            StatusChip(title: "MONITOR", tone: .success)
         } hero: {
-            ScreenHeader(title: "Monitoring", subtitle: "Stable")
+            ScreenHeader(title: "Idle", subtitle: nil)
         } content: {
-            HStack(alignment: .center) {
+            HStack {
                 Text("HR")
                     .font(AppTheme.Typography.subtitle(compact: true))
                     .foregroundStyle(AppTheme.ColorToken.textMuted)
@@ -21,10 +21,9 @@ struct IdleView: View {
                     .font(AppTheme.Typography.subtitle(compact: true))
                     .foregroundStyle(AppTheme.ColorToken.textSecondary)
             }
-            .padding(.horizontal, AppTheme.Spacing.xs)
         } actions: {
             VStack(spacing: AppTheme.Spacing.xs) {
-                CalmButton(title: "Trigger", tone: .primary, hint: "Simulasi stress signal") {
+                CalmButton(title: "Trigger", tone: .primary, hint: "Simulasi sinyal stress") {
                     appModel.markTriggered()
                 }
                 CalmButton(title: "Summary", tone: .secondary, hint: "Buka ringkasan") {

@@ -5,15 +5,14 @@ struct OnboardingView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "READY", tone: .neutral)
+            EmptyView()
         } hero: {
             ScreenHeader(title: "CalmPulse BP", subtitle: "Bukan diagnosis")
         } content: {
-            CalmCard {
-                Text("Self-awareness only")
-                    .font(AppTheme.Typography.subtitle(compact: true))
-                    .foregroundStyle(AppTheme.ColorToken.textMuted)
-            }
+            Text("Self-awareness only")
+                .font(AppTheme.Typography.subtitle(compact: true))
+                .foregroundStyle(AppTheme.ColorToken.textMuted)
+                .frame(maxWidth: .infinity)
         } actions: {
             CalmButton(title: "Mulai", tone: .primary, hint: "Masuk mode monitoring") {
                 appModel.goToIdle()

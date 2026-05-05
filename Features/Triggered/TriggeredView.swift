@@ -11,7 +11,7 @@ struct TriggeredView: View {
         } content: {
             EmptyView()
         } actions: {
-            CalmButton(title: "Start Breathing", tone: .primary, hint: "Mulai sesi breathing") {
+            CalmButton(title: "Start", tone: .primary, hint: "Mulai breathing") {
                 appModel.startBreathing()
             }
         }

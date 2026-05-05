@@ -13,13 +13,13 @@ struct BreathingView: View {
         } content: {
             ZStack {
                 Circle()
-                    .stroke(AppTheme.ColorToken.neutralGray, lineWidth: 6)
-                    .frame(width: 78, height: 78)
+                    .stroke(AppTheme.ColorToken.neutralGray, lineWidth: 5)
+                    .frame(width: 72, height: 72)
 
                 Circle()
-                    .stroke(AppTheme.ColorToken.successGreen.opacity(0.92), lineWidth: 4)
-                    .frame(width: 62, height: 62)
-                    .scaleEffect(pulse ? (reduceMotion ? 1.02 : 1.10) : 0.92)
+                    .stroke(AppTheme.ColorToken.successGreen, lineWidth: 3)
+                    .frame(width: 56, height: 56)
+                    .scaleEffect(pulse ? (reduceMotion ? 1.02 : 1.08) : 0.94)
 
                 Text("60")
                     .font(AppTheme.Typography.metric(compact: true))

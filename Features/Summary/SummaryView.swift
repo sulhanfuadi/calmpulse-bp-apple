@@ -14,9 +14,8 @@ struct SummaryView: View {
                 Spacer(minLength: AppTheme.Spacing.md)
                 metric(title: "CALM", value: "--")
             }
-            .padding(.horizontal, AppTheme.Spacing.xs)
         } actions: {
-            CalmButton(title: "Back Idle", tone: .primary, hint: "Kembali monitoring") {
+            CalmButton(title: "Back", tone: .primary, hint: "Kembali ke idle") {
                 appModel.restartFlow()
             }
         }
