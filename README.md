@@ -226,3 +226,28 @@ For this stage, prioritize:
 ## 12) License
 
 No explicit license is configured yet. Treat as private/proprietary unless a license file is added.
+
+
+## 13) UI Architecture (Calm Minimal)
+
+UI menggunakan pendekatan reusable dan tokenized agar konsisten:
+
+- `UI/Theme/AppTheme.swift`: semantic tokens (color, spacing, radius, typography, opacity)
+- `UI/Components`: reusable building blocks (`CalmPrimaryButton`, `CalmSecondaryButton`, `CalmCard`, `StatusChip`, `ScreenHeader`)
+- `UI/Layout/ScreenScaffold.swift`: layout + background pattern global screen
+- `UI/Modifiers/PressFeedbackStyle.swift`: micro-interaction tombol ringan
+
+Tujuan desain:
+- hierarchy jelas,
+- interaksi tenang,
+- kontras cukup untuk readability,
+- feel Apple-inspired tanpa visual noise.
+
+## 14) Design Principles
+
+- **Calm First**: visual membantu regulasi, bukan menambah stimulasi.
+- **Action Clarity**: primary action selalu paling menonjol.
+- **Minimal Motion**: animasi subtle, durasi pendek, tidak mengganggu.
+- **Consistency**: semua screen mengikuti token/theme yang sama.
+- **Safety Presence**: konteks wellness selalu dijaga, tanpa framing diagnosis.
+
