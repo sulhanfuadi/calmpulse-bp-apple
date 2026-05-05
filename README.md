@@ -154,6 +154,7 @@ Defined in `Domain/SessionLogEntry.swift`:
 - Safety/compliance baseline: [`docs/COMPLIANCE_NOTES.md`](docs/COMPLIANCE_NOTES.md)
 - UI style guide: [`docs/UI_STYLE_GUIDE.md`](docs/UI_STYLE_GUIDE.md)
 - Accessibility baseline: [`docs/ACCESSIBILITY_BASELINE.md`](docs/ACCESSIBILITY_BASELINE.md)
+- Haptic choreography: [`docs/HAPTIC_CHOREOGRAPHY.md`](docs/HAPTIC_CHOREOGRAPHY.md)
 
 ---
 
@@ -258,3 +259,12 @@ Tujuan desain:
 ## 15) Final Visual Direction
 
 CalmPulse BP uses **Ice Blue + Balanced Contrast + Subtle Spring** as the default visual direction for watch-first UX refinement.
+
+
+## 16) Ultra Polish Readiness
+
+Current UI baseline now includes:
+- adaptive watch-size typography/spacing behavior,
+- explicit accessibility labels/hints for key actions,
+- reduce-motion fallback for transitions and breathing visuals,
+- documented haptic choreography intent for next-phase runtime integration.
