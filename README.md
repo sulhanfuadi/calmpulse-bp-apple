@@ -1,88 +1,44 @@
 # CalmPulse BP (Apple Watch)
 
-A watch-first digital companion for young adults with hypertension to practice **micro-interventions** when stress signals rise.
+CalmPulse BP is a watch-first behavioral companion for young adults with hypertension to practice short, guided micro-interventions when stress signals rise.
 
-> **Medical Safety Notice**  
+> **Medical Safety Notice**
 > CalmPulse BP is **not a diagnostic tool**, **not an emergency service**, and **does not replace professional medical care**.
 
----
+## Project Snapshot
+- **Project type:** watchOS-first accessibility and behavior-support product prototype
+- **Primary outcome:** help users build a repeatable pause-and-regulate habit in daily routines
+- **Current status:** Scaffold + PRD phase (core flow and domain contracts are available)
+- **Scope boundary:** behavioral support only, not clinical diagnosis
 
-## 1) Why this product exists
+## Why This Product Exists
+Many young adults with hypertension experience short stress spikes during study, work, or commute periods and miss the right moment to pause.
 
-Many young adults with hypertension experience short stress spikes during daily routines (study/work/commute), but often miss the exact moment to pause and regulate. CalmPulse BP is designed to:
-
+CalmPulse BP is designed to:
 - detect simple high-risk moments (initially with lightweight heuristics),
 - nudge users into a short breathing intervention,
-- capture post-session mood reflection,
-- reinforce daily self-awareness through a simple summary.
+- capture post-session reflection,
+- reinforce daily self-awareness with a minimal summary.
 
-This is intentionally **behavioral support**, not clinical diagnosis.
+## Product Vision
+CalmPulse BP aims to support a repeatable five-step habit:
+1. **Notice** stress signal
+2. **Pause** briefly
+3. **Regulate** through guided breathing
+4. **Reflect** quickly
+5. **Learn** from daily patterns
 
----
+## MVP User Flow
+1. **Onboarding** — user acknowledges safety and product positioning.
+2. **Idle Monitoring** — app waits in low-friction mode.
+3. **Triggered** — user receives a prompt to pause.
+4. **Breathing Active** — short guided breathing (target: 60 seconds).
+5. **Reflection Pending** — quick mood input.
+6. **Summary** — daily behavior reinforcement metrics.
 
-## 2) Product vision
-
-CalmPulse BP aims to become a low-friction watch companion that helps users build a repeatable habit:
-
-1. **Notice** stress signal,
-2. **Pause** briefly,
-3. **Regulate** through guided breathing,
-4. **Reflect** quickly,
-5. **Learn** from daily patterns.
-
----
-
-## 3) Current repository status
-
-This repository is in **Scaffold + PRD phase**.
-
-### What is already implemented
-- watchOS-first SwiftUI project structure (source scaffold).
-- state-driven flow routing:
-  - `Onboarding`
-  - `IdleMonitoring`
-  - `Triggered`
-  - `BreathingActive`
-  - `ReflectionPending`
-  - `Summary`
-- domain contracts for:
-  - app states,
-  - trigger reasons,
-  - reflection moods,
-  - app configuration constants,
-  - session log entry model.
-- product/technical/compliance docs.
-
-### What is not yet implemented
-- real HealthKit ingestion pipeline,
-- production trigger engine,
-- persisted user/session storage,
-- haptic breathing loop production behavior,
-- full iPhone companion app and sync.
-
----
-
-## 4) User flow (MVP target)
-
-1. **Onboarding**
-   - user sees safety notice and acknowledges app positioning.
-2. **Idle Monitoring**
-   - app waits in low-friction mode.
-3. **Triggered**
-   - user receives prompt to pause.
-4. **Breathing Active**
-   - short guided breathing (target: 60s).
-5. **Reflection Pending**
-   - quick mood input.
-6. **Summary**
-   - simple daily metrics for behavior reinforcement.
-
-See detailed transition rules in [`docs/STATE_MACHINE.md`](docs/STATE_MACHINE.md).
-
----
+Detailed transition rules: `docs/STATE_MACHINE.md`
 
 ## App Screenshots
-
 <p align="center">
   <img src="assets/screenshots/01-onboarding.png" width="220" alt="Onboarding screen" />
   <img src="assets/screenshots/02-idle.png" width="220" alt="Idle monitoring screen" />
@@ -94,20 +50,15 @@ See detailed transition rules in [`docs/STATE_MACHINE.md`](docs/STATE_MACHINE.md
   <img src="assets/screenshots/06-summary.png" width="220" alt="Summary metrics screen" />
 </p>
 
----
+## Architecture Overview
+### Layered Structure
+- **App** — entry point and root state routing
+- **Features** — screen/state-specific SwiftUI modules
+- **Domain** — business contracts and shared models
+- **Infrastructure** — state holder and adapters (storage/health pipeline planned)
+- **Resources** — assets, strings, and theming primitives
 
-## 5) Architecture (watchOS-first)
-
-High-level layers:
-
-- **App**: app entry + root routing
-- **Features**: per-screen/per-state UI modules
-- **Domain**: business contracts and shared models
-- **Infrastructure**: app state holder and adapters (storage/health later)
-- **Resources**: assets/strings/theme (to be expanded)
-
-Current source tree:
-
+### Source Tree
 ```text
 calmpulse-bp-apple/
 ├─ App/
@@ -124,13 +75,29 @@ calmpulse-bp-apple/
 └─ docs/
 ```
 
----
+## Implemented vs Planned
+### Implemented
+- watchOS-first SwiftUI scaffold
+- state-driven flow routing:
+  - `Onboarding`
+  - `IdleMonitoring`
+  - `Triggered`
+  - `BreathingActive`
+  - `ReflectionPending`
+  - `Summary`
+- initial domain contracts for state, trigger reason, mood reflection, config, and session log model
+- product, technical, and compliance documentation set
 
-## 6) Domain contracts (initial)
+### Planned (Not Yet Implemented)
+- real HealthKit ingestion pipeline
+- production trigger engine
+- persisted user/session storage
+- production-grade haptic breathing loop
+- full iPhone companion app and cross-device sync
 
-### App states
+## Domain Contract Summary
+### App State
 Defined in `Domain/AppState.swift`:
-
 - `Onboarding`
 - `IdleMonitoring`
 - `Triggered`
@@ -138,167 +105,63 @@ Defined in `Domain/AppState.swift`:
 - `ReflectionPending`
 - `Summary`
 
-### Config constants
+### Config Defaults
 Defined in `Domain/AppConfig.swift`:
+- `hrThresholdDelta`: `14`
+- `cooldownMinutes`: `45`
+- `breathingDurationSeconds`: `60`
 
-- `hrThresholdDelta`
-- `cooldownMinutes`
-- `breathingDurationSeconds`
-
-Default scaffold values:
-- HR threshold delta: `14`
-- Cooldown: `45` minutes
-- Breathing duration: `60` seconds
-
-### Session log schema
+### Session Log Schema
 Defined in `Domain/SessionLogEntry.swift`:
-
 - `timestamp`
 - `triggerReason`
 - `sessionCompleted`
 - `moodAfter`
-- `optionalBP` (nullable, planned v1.1 use)
+- `optionalBP` (nullable, planned for v1.1)
 
----
+## Documentation Index
+- Product requirements: `docs/PRD.md`
+- State transitions: `docs/STATE_MACHINE.md`
+- Technical roadmap: `docs/TECH_PLAN.md`
+- Safety/compliance baseline: `docs/COMPLIANCE_NOTES.md`
+- UI style guide: `docs/UI_STYLE_GUIDE.md`
+- Accessibility baseline: `docs/ACCESSIBILITY_BASELINE.md`
+- Haptic choreography: `docs/HAPTIC_CHOREOGRAPHY.md`
+- UI QA checklist: `docs/UI_QA_CHECKLIST.md`
 
-## 7) Documentation index
+## Local Development
+### Prerequisites
+- macOS with latest stable Xcode
+- watchOS runtime installed (`Xcode > Settings > Platforms`)
+- Apple ID configured in Xcode for signing (if deploying to physical watch)
 
-- Product requirements: [`docs/PRD.md`](docs/PRD.md)
-- State transitions: [`docs/STATE_MACHINE.md`](docs/STATE_MACHINE.md)
-- Technical roadmap: [`docs/TECH_PLAN.md`](docs/TECH_PLAN.md)
-- Safety/compliance baseline: [`docs/COMPLIANCE_NOTES.md`](docs/COMPLIANCE_NOTES.md)
-- UI style guide: [`docs/UI_STYLE_GUIDE.md`](docs/UI_STYLE_GUIDE.md)
-- Accessibility baseline: [`docs/ACCESSIBILITY_BASELINE.md`](docs/ACCESSIBILITY_BASELINE.md)
-- Haptic choreography: [`docs/HAPTIC_CHOREOGRAPHY.md`](docs/HAPTIC_CHOREOGRAPHY.md)
-- UI QA checklist: [`docs/UI_QA_CHECKLIST.md`](docs/UI_QA_CHECKLIST.md)
-
----
-
-## 8) Local development setup
-
-## Prerequisites
-- macOS with Xcode (latest stable recommended)
-- watchOS platform/runtime installed in `Xcode > Settings > Components`
-- Swift 5.9+ toolchain (bundled with modern Xcode)
-
-### Run (scaffold)
-Project file is available at `CalmPulseBP.xcodeproj`.
-
-1. Open `CalmPulseBP.xcodeproj` in Xcode.
-2. Select scheme `CalmPulseBP`.
-3. Select an Apple Watch simulator (Series 9 / Ultra 2).
-4. Run app.
-
-### CLI build check
+### Setup
 ```bash
-xcodebuild -project CalmPulseBP.xcodeproj -scheme CalmPulseBP -destination 'generic/platform=watchOS Simulator' build
+cd calmpulse-bp-apple
+open CalmPulseBP.xcodeproj
 ```
 
-If build fails because watchOS platform is missing, install the watchOS runtime from Xcode Components.
+### Run on Simulator
+1. Choose a watchOS simulator target.
+2. Build and run from Xcode.
+3. Navigate through the six main app states.
 
----
+## Validation Checklist (Current Stage)
+- App compiles on watchOS simulator
+- End-to-end state flow can be navigated manually
+- Safety notice is visible in onboarding
+- Reflection and summary screens render correctly
+- Documentation links resolve correctly
 
-## 9) Safety and compliance stance
+## Current v1 Boundaries
+- Heuristic trigger logic only (non-clinical)
+- No persistent storage in current scaffold
+- No automatic medical decisioning
+- No emergency alert integration
 
-CalmPulse BP must always preserve the following constraints:
-
-- No diagnosis claims.
-- No emergency replacement claims.
-- No medication or clinical treatment instructions.
-- Explicit recommendation to seek professional care for severe/persistent symptoms.
-
-Baseline wording and rules are maintained in [`docs/COMPLIANCE_NOTES.md`](docs/COMPLIANCE_NOTES.md).
-
----
-
-## 10) Roadmap
-
-### Phase 0 (current)
-- scaffold architecture + docs + state contracts.
-
-### Phase 1 (MVP core)
-- HealthKit permission + heart-rate ingestion.
-- trigger engine (HR + inactivity + cooldown).
-- breathing guidance loop with haptic pacing.
-- reflection capture + local daily summary.
-
-### Phase 2
-- persistence hardening,
-- analytics/debug instrumentation,
-- optional iPhone companion for trend visualization.
-
-### Phase 3
-- UX optimization, battery tuning, and pilot-readiness hardening.
-
----
-
-## 11) Contribution notes
-
-For this stage, prioritize:
-
-- keeping state transitions explicit and testable,
-- preserving safety wording in user-facing copy,
-- avoiding premature complexity before MVP trigger loop is validated.
-
----
-
-## 12) License
-
-No explicit license is configured yet. Treat as private/proprietary unless a license file is added.
-
-
-## 13) UI Architecture (Calm Minimal)
-
-UI uses a reusable tokenized system for consistency:
-
-- `UI/Theme/AppTheme.swift`: semantic tokens (color, spacing, radius, typography, opacity)
-- `UI/Components`: reusable building blocks (`CalmPrimaryButton`, `CalmSecondaryButton`, `CalmCard`, `StatusChip`, `ScreenHeader`)
-- `UI/Layout/ScreenScaffold.swift`: global fixed-budget no-scroll screen layout
-- `UI/Modifiers/PressFeedbackStyle.swift`: subtle button micro-interactions
-
-Design goals:
-- clear hierarchy,
-- calm interactions,
-- strong contrast for readability,
-- Apple-native feel with low visual noise.
-
-## 14) Design Principles
-
-- **Calm First**: visuals support regulation, not stimulation.
-- **Action Clarity**: primary action selalu paling menonjol.
-- **Minimal Motion**: animasi subtle, durasi pendek, tidak mengganggu.
-- **Consistency**: semua screen mengikuti token/theme yang sama.
-- **Safety Presence**: konteks wellness selalu dijaga, tanpa framing diagnosis.
-
-
-
-## 15) Final Visual Direction
-
-CalmPulse BP uses **Monochrome + Signal Red/Green** as the default visual direction for watch-first UX refinement.
-
-
-## 16) Ultra Polish Readiness
-
-Current UI baseline now includes:
-- adaptive watch-size typography/spacing behavior,
-- explicit accessibility labels/hints for key actions,
-- reduce-motion fallback for transitions and breathing visuals,
-- documented haptic choreography intent for next-phase runtime integration.
-
-
-## 17) Monochrome Refactor v2
-
-Current UI direction is **Monochrome + Red/Green Signal System** with strict **No Scroll Screen Rule** for watch-first usability.
-
-
-## 18) Apple-Native Cleanup
-
-UI now follows strict **No Decorative UI**, **No-Scroll Watch Rule**, and **Monochrome + Signal Color Discipline**.
-
-## 19) Showcase Mode
-
-For screenshots and demos:
-- Toggle `screenshotModeEnabled` in `Infrastructure/AppStateModel.swift`.
-- When enabled (default): breathing uses deterministic static capture values and calmer transitions.
-- Summary renders stable dummy metrics for product showcase captures.
-- All user-facing copy is English-only.
+## Next Iterations
+- Integrate HealthKit-based signal ingestion
+- Add robust trigger logic calibration and cooldown tuning
+- Implement local/session persistence
+- Refine haptic choreography with usability testing
+- Build iPhone companion and sync strategy
