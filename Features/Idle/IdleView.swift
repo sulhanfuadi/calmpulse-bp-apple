@@ -4,13 +4,29 @@ struct IdleView: View {
     @EnvironmentObject private var appModel: AppStateModel
 
     var body: some View {
-        VStack(spacing: 8) {
-            Text("Mode Idle")
-            Text("Monitoring pasif aktif")
-                .font(.caption2)
-            Button("Simulasi Trigger") { appModel.markTriggered() }
-            Button("Lihat Ringkasan") { appModel.openSummary() }
+        ScreenScaffold {
+            StatusChip(title: "Monitoring Aktif")
+            ScreenHeader(
+                title: "Mode Idle",
+                subtitle: "Sistem siap memberi nudge ketika dibutuhkan"
+            )
+
+            CalmCard {
+                Text("Baseline HR")
+                    .font(AppTheme.Typography.subtitle)
+                    .foregroundStyle(AppTheme.ColorToken.textSecondary)
+                Text("\(appModel.baselineHR) bpm")
+                    .font(AppTheme.Typography.metric)
+                    .foregroundStyle(AppTheme.ColorToken.textPrimary)
+            }
+
+            CalmPrimaryButton(title: "Simulasi Trigger") {
+                appModel.markTriggered()
+            }
+
+            CalmSecondaryButton(title: "Lihat Ringkasan") {
+                appModel.openSummary()
+            }
         }
-        .padding()
     }
 }
