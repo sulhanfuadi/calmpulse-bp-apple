@@ -159,16 +159,23 @@ Defined in `Domain/SessionLogEntry.swift`:
 
 ## Prerequisites
 - macOS with Xcode (latest stable recommended)
-- watchOS simulator components installed in Xcode
+- watchOS platform/runtime installed in `Xcode > Settings > Components`
 - Swift 5.9+ toolchain (bundled with modern Xcode)
 
 ### Run (scaffold)
-Because this repo is scaffold-first, create/open a watchOS app target in Xcode and attach source folders:
+Project file sudah tersedia: `CalmPulseBP.xcodeproj`.
 
-1. Open this folder/project container in Xcode.
-2. Ensure a watchOS app target named `CalmPulseBP` exists.
-3. Add source files from `App`, `Features`, `Domain`, `Infrastructure` to that target.
-4. Select an Apple Watch simulator and run.
+1. Open `CalmPulseBP.xcodeproj` di Xcode.
+2. Pilih scheme `CalmPulseBP`.
+3. Pilih simulator Apple Watch (Series 9 / Ultra 2).
+4. Run app.
+
+### CLI build check
+```bash
+xcodebuild -project CalmPulseBP.xcodeproj -scheme CalmPulseBP -destination 'generic/platform=watchOS Simulator' build
+```
+
+Jika gagal dengan error platform watchOS belum tersedia, install dulu watchOS platform/runtime dari Xcode Components.
 
 ---
 

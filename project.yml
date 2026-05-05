@@ -1,0 +1,36 @@
+name: CalmPulseBP
+options:
+  minimumXcodeGenVersion: 2.38.0
+  deploymentTarget:
+    watchOS: "10.0"
+configs:
+  Debug: debug
+  Release: release
+targets:
+  CalmPulseBP:
+    type: application.watchapp2
+    platform: watchOS
+    deploymentTarget: "10.0"
+    sources:
+      - App
+      - Domain
+      - Infrastructure
+      - Features
+      - Resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sulhanfuadi.calmpulsebp.apple.watch
+        SWIFT_VERSION: 5.9
+        PRODUCT_NAME: CalmPulseBP
+        TARGETED_DEVICE_FAMILY: 4
+        DEVELOPMENT_TEAM: ""
+    info:
+      path: CalmPulseBP-Info.plist
+      properties:
+        CFBundleDisplayName: CalmPulse BP
+        CFBundleName: CalmPulseBP
+        WKApplication: true
+        WKWatchOnly: true
+        UILaunchScreen: {}
+        NSHealthShareUsageDescription: CalmPulse BP reads heart rate trends for wellness support.
+        NSHealthUpdateUsageDescription: CalmPulse BP stores session summaries for wellness support.
