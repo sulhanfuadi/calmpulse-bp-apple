@@ -1,22 +1,22 @@
 # Simulator Smoke Test (watchOS)
 
 ## Preconditions
-- Xcode terinstall
-- watchOS platform/runtime sudah terpasang di `Xcode > Settings > Components`
-- Project `CalmPulseBP.xcodeproj` berhasil dibuka
+- Xcode is installed
+- watchOS platform/runtime is installed in `Xcode > Settings > Components`
+- Project `CalmPulseBP.xcodeproj` opens successfully
 
 ## Steps
 1. Pilih scheme `CalmPulseBP`.
 2. Pilih simulator Apple Watch (Series 9 atau Ultra 2).
 3. Run app.
 4. Verifikasi tampilan awal `Onboarding`.
-5. Tap `Setuju & Mulai` -> masuk `Idle`.
-6. Tap `Simulasi Trigger` -> masuk `Triggered`.
-7. Tap `Mulai Breathing 60s` -> masuk `Breathing`.
-8. Tap `Selesai` -> masuk `Reflection`.
-9. Tap salah satu mood -> masuk `Summary`.
-10. Tap `Kembali Idle` -> kembali ke `Idle`.
+5. Tap `Start` -> enter `Idle`.
+6. Tap `Trigger` -> enter `Triggered`.
+7. Tap `Start` -> enter `Breathing`.
+8. Wait timer completion or tap `Done` -> enter `Reflection`.
+9. Tap any mood option -> enter `Summary`.
+10. Tap `Back` -> return to `Idle`.
 
 ## Pass criteria
-- Semua transisi state berjalan tanpa crash.
-- Semua placeholder screen tampil sesuai urutan state contract.
+- All state transitions run without crashes.
+- All placeholder screens appear in the expected state order.

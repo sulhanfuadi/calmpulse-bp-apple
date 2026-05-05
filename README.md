@@ -234,22 +234,22 @@ No explicit license is configured yet. Treat as private/proprietary unless a lic
 
 ## 13) UI Architecture (Calm Minimal)
 
-UI menggunakan pendekatan reusable dan tokenized agar konsisten:
+UI uses a reusable tokenized system for consistency:
 
 - `UI/Theme/AppTheme.swift`: semantic tokens (color, spacing, radius, typography, opacity)
 - `UI/Components`: reusable building blocks (`CalmPrimaryButton`, `CalmSecondaryButton`, `CalmCard`, `StatusChip`, `ScreenHeader`)
-- `UI/Layout/ScreenScaffold.swift`: layout + background pattern global screen
-- `UI/Modifiers/PressFeedbackStyle.swift`: micro-interaction tombol ringan
+- `UI/Layout/ScreenScaffold.swift`: global fixed-budget no-scroll screen layout
+- `UI/Modifiers/PressFeedbackStyle.swift`: subtle button micro-interactions
 
-Tujuan desain:
-- hierarchy jelas,
-- interaksi tenang,
-- kontras cukup untuk readability,
-- feel Apple-inspired tanpa visual noise.
+Design goals:
+- clear hierarchy,
+- calm interactions,
+- strong contrast for readability,
+- Apple-native feel with low visual noise.
 
 ## 14) Design Principles
 
-- **Calm First**: visual membantu regulasi, bukan menambah stimulasi.
+- **Calm First**: visuals support regulation, not stimulation.
 - **Action Clarity**: primary action selalu paling menonjol.
 - **Minimal Motion**: animasi subtle, durasi pendek, tidak mengganggu.
 - **Consistency**: semua screen mengikuti token/theme yang sama.
@@ -259,7 +259,7 @@ Tujuan desain:
 
 ## 15) Final Visual Direction
 
-CalmPulse BP uses **Ice Blue + Balanced Contrast + Subtle Spring** as the default visual direction for watch-first UX refinement.
+CalmPulse BP uses **Monochrome + Signal Red/Green** as the default visual direction for watch-first UX refinement.
 
 
 ## 16) Ultra Polish Readiness
@@ -279,3 +279,10 @@ Current UI direction is **Monochrome + Red/Green Signal System** with strict **N
 ## 18) Apple-Native Cleanup
 
 UI now follows strict **No Decorative UI**, **No-Scroll Watch Rule**, and **Monochrome + Signal Color Discipline**.
+
+## 19) Showcase Mode
+
+For screenshots and demos:
+- Breathing state runs a real 60-second inhale/exhale timer.
+- Summary renders stable dummy metrics for product showcase captures.
+- All user-facing copy is English-only.

@@ -1,19 +1,19 @@
 # Compliance & Safety Notes
 
 ## Mandatory wording
-- "Bukan alat diagnosis"
-- "Bukan layanan darurat"
-- "Tidak menggantikan konsultasi medis profesional"
+- "Not a diagnostic tool"
+- "Not an emergency service"
+- "Does not replace professional medical consultation"
 
 ## UX safety constraints
-- Jangan tampilkan prediksi/label diagnosis
-- Jangan berikan instruksi medis spesifik/terapi klinis
-- Selalu arahkan ke bantuan medis saat gejala berat
+- Do not display diagnosis predictions/labels
+- Do not provide specific medical or clinical treatment instructions
+- Always direct users to medical help for severe symptoms
 
 ## Data privacy baseline
-- Simpan data minimal yang diperlukan
-- Transparansi data yang direkam
-- Hindari berbagi data keluar device pada fase awal
+- Store only minimum required data
+- Keep clear transparency on captured data
+- Avoid external data sharing in early phases
 
 ## Emergency escalation copy (future)
-Jika pengguna melaporkan gejala berat, tampilkan call-to-action untuk menghubungi layanan darurat lokal.
+If users report severe symptoms, show a call-to-action to contact local emergency services.

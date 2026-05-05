@@ -42,23 +42,23 @@ enum AppTheme {
 
     enum Typography {
         static func title(compact: Bool) -> Font {
-            compact ? .system(size: 13, weight: .semibold, design: .rounded)
-                    : .system(size: 14, weight: .semibold, design: .rounded)
+            compact ? .system(size: 13, weight: .semibold)
+                    : .system(size: 14, weight: .semibold)
         }
 
         static func subtitle(compact: Bool) -> Font {
-            compact ? .system(size: 10, weight: .regular, design: .rounded)
-                    : .system(size: 11, weight: .regular, design: .rounded)
+            compact ? .system(size: 10, weight: .regular)
+                    : .system(size: 11, weight: .regular)
         }
 
         static func button(compact: Bool) -> Font {
-            compact ? .system(size: 11, weight: .semibold, design: .rounded)
-                    : .system(size: 12, weight: .semibold, design: .rounded)
+            compact ? .system(size: 11, weight: .semibold)
+                    : .system(size: 12, weight: .semibold)
         }
 
         static func metric(compact: Bool) -> Font {
-            compact ? .system(size: 18, weight: .bold, design: .rounded)
-                    : .system(size: 20, weight: .bold, design: .rounded)
+            compact ? .system(size: 18, weight: .bold)
+                    : .system(size: 20, weight: .bold)
         }
     }
 

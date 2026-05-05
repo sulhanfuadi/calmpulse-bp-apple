@@ -37,13 +37,13 @@ struct CalmButton: View {
                     .font(AppTheme.Typography.button(compact: compact))
                     .foregroundStyle(highLegibility ? AppTheme.ColorToken.textPrimary : tone.text)
                     .frame(maxWidth: .infinity)
-                    .frame(minHeight: compact ? 32 : 34)
+                    .frame(minHeight: compact ? 30 : 32)
                     .padding(.vertical, AppTheme.Spacing.xxs)
                     .background(tone.fill)
                     .overlay {
                         if tone != .ghost {
                             RoundedRectangle(cornerRadius: AppTheme.Radius.sm, style: .continuous)
-                                .stroke(AppTheme.ColorToken.border, lineWidth: 1)
+                                .stroke(AppTheme.ColorToken.border, lineWidth: 0.8)
                         }
                     }
                     .clipShape(RoundedRectangle(cornerRadius: AppTheme.Radius.sm, style: .continuous))
@@ -52,6 +52,6 @@ struct CalmButton: View {
             .accessibilityLabel(Text(title))
             .accessibilityHint(Text(hint ?? "Action"))
         }
-        .frame(height: 40)
+        .frame(height: 36)
     }
 }
