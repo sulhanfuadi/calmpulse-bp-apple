@@ -86,14 +86,14 @@ See detailed transition rules in [`docs/STATE_MACHINE.md`](docs/STATE_MACHINE.md
 > Add your screenshots into `assets/screenshots/` with the exact filenames below.
 
 <p align="center">
-  <img src="assets/screenshots/01-onboarding.png" width="220" alt="Onboarding screen" />
-  <img src="assets/screenshots/02-idle.png" width="220" alt="Idle monitoring screen" />
-  <img src="assets/screenshots/03-triggered.png" width="220" alt="Triggered alert screen" />
+  <img src="assets/mockups/01-onboarding-framed.png" width="240" alt="Onboarding screen" />
+  <img src="assets/mockups/02-idle-framed.png" width="240" alt="Idle monitoring screen" />
+  <img src="assets/mockups/03-triggered-framed.png" width="240" alt="Triggered alert screen" />
 </p>
 <p align="center">
-  <img src="assets/screenshots/04-breathing.png" width="220" alt="Breathing session screen" />
-  <img src="assets/screenshots/05-reflection.png" width="220" alt="Reflection input screen" />
-  <img src="assets/screenshots/06-summary.png" width="220" alt="Summary metrics screen" />
+  <img src="assets/mockups/04-breathing-framed.png" width="240" alt="Breathing session screen" />
+  <img src="assets/mockups/05-reflection-framed.png" width="240" alt="Reflection input screen" />
+  <img src="assets/mockups/06-summary-framed.png" width="240" alt="Summary metrics screen" />
 </p>
 
 Recommended capture sequence:
