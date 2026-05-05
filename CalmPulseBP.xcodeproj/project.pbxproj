@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D002DEDEC4D710A6628F996 /* ReflectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07B7D61185C10F6DB2785CE /* ReflectionView.swift */; };
 		3F32DAAD29EC09C64E99B144 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0631AD989A8A2D2FB4133009 /* AppState.swift */; };
+		4331635F78C1F16E66F86847 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67305C78FFF20690ABF592BB /* AppTheme.swift */; };
 		592B7B4A1446270217E8FF5A /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6E1849B211D789B9B8378 /* AppConfig.swift */; };
 		68B025079BC31D77948CE81A /* IdleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382B4D318208D4252701DBD /* IdleView.swift */; };
 		6BFC2FC2B0030F3BE2BCC360 /* SessionLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F8FCE774C32262C0BBDA2 /* SessionLogEntry.swift */; };
@@ -31,6 +32,7 @@
 		5244111324BE27DAFA0818C4 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		57FADB4044BB9054DF87228E /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 		6382B4D318208D4252701DBD /* IdleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleView.swift; sourceTree = "<group>"; };
+		67305C78FFF20690ABF592BB /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		935E70309D94FEB2C20994AF /* TriggeredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggeredView.swift; sourceTree = "<group>"; };
 		B07B7D61185C10F6DB2785CE /* ReflectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionView.swift; sourceTree = "<group>"; };
 		BB32B1ED202E0B1900129EE0 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 			path = Idle;
 			sourceTree = "<group>";
 		};
+		8BA004C9A1242E343D4D1557 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FE8C6FDF570D6E057E15E3B9 /* Theme */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		AF400B2BBFE3016278C3D244 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +151,7 @@
 				0C5722ED5A92EA1C37766B5F /* Features */,
 				AF400B2BBFE3016278C3D244 /* Infrastructure */,
 				40F3A888F6FB829F77B225A3 /* Resources */,
+				8BA004C9A1242E343D4D1557 /* UI */,
 				4003E869360D959FAC42BD44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -151,6 +162,14 @@
 				935E70309D94FEB2C20994AF /* TriggeredView.swift */,
 			);
 			path = Triggered;
+			sourceTree = "<group>";
+		};
+		FE8C6FDF570D6E057E15E3B9 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				67305C78FFF20690ABF592BB /* AppTheme.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +233,7 @@
 				592B7B4A1446270217E8FF5A /* AppConfig.swift in Sources */,
 				3F32DAAD29EC09C64E99B144 /* AppState.swift in Sources */,
 				B79CA30BCA28E23F92EC728B /* AppStateModel.swift in Sources */,
+				4331635F78C1F16E66F86847 /* AppTheme.swift in Sources */,
 				73E78F7446A2866247590DE1 /* BreathingView.swift in Sources */,
 				FC37F390CDA826CC42D51374 /* CalmPulseBPApp.swift in Sources */,
 				68B025079BC31D77948CE81A /* IdleView.swift in Sources */,
