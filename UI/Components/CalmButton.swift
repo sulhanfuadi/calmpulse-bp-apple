@@ -1,82 +1,57 @@
 import SwiftUI
 
-struct CalmPrimaryButton: View {
+enum CalmButtonTone {
+    case primary
+    case secondary
+    case ghost
+
+    var fill: Color {
+        switch self {
+        case .primary: return AppTheme.ColorToken.neutralGray
+        case .secondary: return AppTheme.ColorToken.surfaceStrong
+        case .ghost: return .clear
+        }
+    }
+
+    var text: Color {
+        switch self {
+        case .ghost: return AppTheme.ColorToken.textSecondary
+        default: return AppTheme.ColorToken.textPrimary
+        }
+    }
+}
+
+struct CalmButton: View {
+    @Environment(\.accessibilityDifferentiateWithoutColor) private var highLegibility
+
     let title: String
-    var isEnabled: Bool = true
-    var accessibilityHint: String? = nil
+    let tone: CalmButtonTone
+    var hint: String? = nil
     let action: () -> Void
 
     var body: some View {
         GeometryReader { geo in
-            let compact = geo.size.height < 210
+            let compact = geo.size.height < 212
             Button(action: action) {
                 Text(title)
                     .font(AppTheme.Typography.button(compact: compact))
-                    .foregroundStyle(AppTheme.ColorToken.base)
+                    .foregroundStyle(highLegibility ? AppTheme.ColorToken.textPrimary : tone.text)
                     .frame(maxWidth: .infinity)
-                    .frame(minHeight: 40)
-                    .padding(.vertical, AppTheme.Spacing.xs)
-                    .background(AppTheme.ColorToken.accent)
-                    .clipShape(RoundedRectangle(cornerRadius: AppTheme.Radius.md, style: .continuous))
-            }
-            .buttonStyle(PressFeedbackStyle())
-            .disabled(!isEnabled)
-            .opacity(isEnabled ? 1 : AppTheme.Opacity.disabled)
-            .accessibilityLabel(Text(title))
-            .accessibilityHint(Text(accessibilityHint ?? "Aksi utama untuk layar ini"))
-        }
-        .frame(height: 52)
-    }
-}
-
-struct CalmSecondaryButton: View {
-    let title: String
-    var isEnabled: Bool = true
-    var accessibilityHint: String? = nil
-    let action: () -> Void
-
-    var body: some View {
-        GeometryReader { geo in
-            let compact = geo.size.height < 210
-            Button(action: action) {
-                Text(title)
-                    .font(AppTheme.Typography.subtitle(compact: compact).weight(.semibold))
-                    .foregroundStyle(AppTheme.ColorToken.textPrimary)
-                    .frame(maxWidth: .infinity)
-                    .frame(minHeight: 40)
-                    .padding(.vertical, AppTheme.Spacing.xs)
-                    .calmSurface(level: 2)
-            }
-            .buttonStyle(PressFeedbackStyle())
-            .disabled(!isEnabled)
-            .opacity(isEnabled ? 1 : AppTheme.Opacity.disabled)
-            .accessibilityLabel(Text(title))
-            .accessibilityHint(Text(accessibilityHint ?? "Aksi tambahan"))
-        }
-        .frame(height: 52)
-    }
-}
-
-struct CalmGhostButton: View {
-    let title: String
-    var accessibilityHint: String? = nil
-    let action: () -> Void
-
-    var body: some View {
-        GeometryReader { geo in
-            let compact = geo.size.height < 210
-            Button(action: action) {
-                Text(title)
-                    .font(AppTheme.Typography.subtitle(compact: compact).weight(.semibold))
-                    .foregroundStyle(AppTheme.ColorToken.textSecondary)
-                    .frame(maxWidth: .infinity)
-                    .frame(minHeight: 36)
+                    .frame(minHeight: compact ? 32 : 34)
                     .padding(.vertical, AppTheme.Spacing.xxs)
+                    .background(tone.fill)
+                    .overlay {
+                        if tone != .ghost {
+                            RoundedRectangle(cornerRadius: AppTheme.Radius.sm, style: .continuous)
+                                .stroke(AppTheme.ColorToken.border, lineWidth: 1)
+                        }
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: AppTheme.Radius.sm, style: .continuous))
             }
             .buttonStyle(PressFeedbackStyle())
             .accessibilityLabel(Text(title))
-            .accessibilityHint(Text(accessibilityHint ?? "Aksi opsi rendah prioritas"))
+            .accessibilityHint(Text(hint ?? "Action"))
         }
-        .frame(height: 46)
+        .frame(height: 40)
     }
 }
