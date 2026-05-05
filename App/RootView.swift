@@ -21,7 +21,7 @@ struct RootView: View {
                 SummaryView()
             }
         }
-        .transition(reduceMotion ? .opacity : .asymmetric(insertion: .opacity.combined(with: .scale(scale: 0.985)), removal: .opacity))
+        .transition((reduceMotion || appModel.screenshotModeEnabled) ? .opacity : .asymmetric(insertion: .opacity.combined(with: .scale(scale: 0.985)), removal: .opacity))
         .animation(AppTheme.Motion.transition, value: appModel.state)
     }
 }

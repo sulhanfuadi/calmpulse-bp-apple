@@ -3,16 +3,24 @@ import SwiftUI
 struct SummaryView: View {
     @EnvironmentObject private var appModel: AppStateModel
 
-    private let demoMetrics = SummaryDemoMetrics(
+    private let screenshotMetrics = SummaryDemoMetrics(
         triggerCount: 4,
         calmCompletionRate: 78,
         averageRecoveryMinutes: 2.4,
         lastSessionMood: "Calmer"
     )
 
+    private let liveDemoMetrics = SummaryDemoMetrics(
+        triggerCount: 2,
+        calmCompletionRate: 64,
+        averageRecoveryMinutes: 3.1,
+        lastSessionMood: "Steady"
+    )
+
     var body: some View {
         GeometryReader { geo in
             let compact = geo.size.height < 212
+            let metrics = appModel.screenshotModeEnabled ? screenshotMetrics : liveDemoMetrics
 
             ScreenScaffold {
                 StatusChip(title: "SUMMARY", tone: .success)
@@ -21,14 +29,14 @@ struct SummaryView: View {
             } content: {
                 VStack(alignment: .leading, spacing: compact ? AppTheme.Spacing.xxs : AppTheme.Spacing.xs) {
                     HStack {
-                        metric(title: "Triggers", value: "\(demoMetrics.triggerCount)", compact: compact)
+                        metric(title: "Triggers", value: "\(metrics.triggerCount)", compact: compact)
                         Spacer(minLength: AppTheme.Spacing.sm)
-                        metric(title: "Calm", value: "\(demoMetrics.calmCompletionRate)%", compact: compact)
+                        metric(title: "Calm", value: "\(metrics.calmCompletionRate)%", compact: compact)
                     }
                     HStack {
-                        metric(title: "Avg Rec", value: String(format: "%.1fm", demoMetrics.averageRecoveryMinutes), compact: compact)
+                        metric(title: "Avg Rec", value: String(format: "%.1fm", metrics.averageRecoveryMinutes), compact: compact)
                         Spacer(minLength: AppTheme.Spacing.sm)
-                        metric(title: "Mood", value: demoMetrics.lastSessionMood, compact: compact)
+                        metric(title: "Mood", value: metrics.lastSessionMood, compact: compact)
                     }
                 }
             } actions: {

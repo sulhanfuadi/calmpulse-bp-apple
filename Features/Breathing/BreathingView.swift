@@ -34,9 +34,9 @@ struct BreathingView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .onAppear { pulse = true }
+                .onAppear { pulse = !appModel.screenshotModeEnabled }
                 .onChange(of: scenePhase) { _, newPhase in
-                    if newPhase == .active { pulse = true }
+                    if newPhase == .active { pulse = !appModel.screenshotModeEnabled }
                 }
                 .animation(reduceMotion ? AppTheme.Motion.breathingReduced : AppTheme.Motion.breathing, value: pulse)
             } actions: {

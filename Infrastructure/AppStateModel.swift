@@ -15,6 +15,7 @@ final class AppStateModel: ObservableObject {
     }
 
     @Published private(set) var state: AppState = .onboarding
+    @Published var screenshotModeEnabled: Bool = true
     @Published var baselineHR: Int = 72
     @Published var sessions: [SessionLogEntry] = []
     @Published private(set) var breathingRemainingSeconds: Int = 60
@@ -30,6 +31,11 @@ final class AppStateModel: ObservableObject {
     func markTriggered() { transition(to: .triggered) }
     func startBreathing() {
         transition(to: .breathingActive)
+        if screenshotModeEnabled {
+            breathingRemainingSeconds = 42
+            breathingPhase = .inhale
+            return
+        }
         beginBreathingSession()
     }
     func openReflection() {

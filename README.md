@@ -283,6 +283,7 @@ UI now follows strict **No Decorative UI**, **No-Scroll Watch Rule**, and **Mono
 ## 19) Showcase Mode
 
 For screenshots and demos:
-- Breathing state runs a real 60-second inhale/exhale timer.
+- Toggle `screenshotModeEnabled` in `Infrastructure/AppStateModel.swift`.
+- When enabled (default): breathing uses deterministic static capture values and calmer transitions.
 - Summary renders stable dummy metrics for product showcase captures.
 - All user-facing copy is English-only.
