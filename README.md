@@ -152,6 +152,8 @@ Defined in `Domain/SessionLogEntry.swift`:
 - State transitions: [`docs/STATE_MACHINE.md`](docs/STATE_MACHINE.md)
 - Technical roadmap: [`docs/TECH_PLAN.md`](docs/TECH_PLAN.md)
 - Safety/compliance baseline: [`docs/COMPLIANCE_NOTES.md`](docs/COMPLIANCE_NOTES.md)
+- UI style guide: [`docs/UI_STYLE_GUIDE.md`](docs/UI_STYLE_GUIDE.md)
+- Accessibility baseline: [`docs/ACCESSIBILITY_BASELINE.md`](docs/ACCESSIBILITY_BASELINE.md)
 
 ---
 
@@ -251,3 +253,8 @@ Tujuan desain:
 - **Consistency**: semua screen mengikuti token/theme yang sama.
 - **Safety Presence**: konteks wellness selalu dijaga, tanpa framing diagnosis.
 
+
+
+## 15) Final Visual Direction
+
+CalmPulse BP uses **Ice Blue + Balanced Contrast + Subtle Spring** as the default visual direction for watch-first UX refinement.
