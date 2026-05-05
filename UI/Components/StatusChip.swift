@@ -1,8 +1,22 @@
 import SwiftUI
 
 struct StatusChip: View {
+    enum Tone {
+        case accent
+        case success
+        case warning
+
+        var color: Color {
+            switch self {
+            case .accent: return AppTheme.ColorToken.accentSoft
+            case .success: return AppTheme.ColorToken.success
+            case .warning: return AppTheme.ColorToken.warning
+            }
+        }
+    }
+
     let title: String
-    var tone: Color = AppTheme.ColorToken.accentSecondary
+    var tone: Tone = .accent
 
     var body: some View {
         Text(title)
@@ -10,9 +24,9 @@ struct StatusChip: View {
             .foregroundStyle(AppTheme.ColorToken.textPrimary)
             .padding(.horizontal, AppTheme.Spacing.sm)
             .padding(.vertical, AppTheme.Spacing.xxs)
-            .background(tone.opacity(0.25))
+            .background(tone.color.opacity(0.20))
             .overlay {
-                Capsule().stroke(tone.opacity(0.55), lineWidth: 1)
+                Capsule().stroke(tone.color.opacity(0.58), lineWidth: 1)
             }
             .clipShape(Capsule())
     }
