@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject private var appModel: AppStateModel
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         Group {
@@ -20,7 +21,7 @@ struct RootView: View {
                 SummaryView()
             }
         }
-        .transition(.asymmetric(insertion: .opacity.combined(with: .scale(scale: 0.985)), removal: .opacity))
-        .animation(AppTheme.Motion.transition, value: appModel.state)
+        .transition(reduceMotion ? .opacity : .asymmetric(insertion: .opacity.combined(with: .scale(scale: 0.985)), removal: .opacity))
+        .animation(reduceMotion ? AppTheme.Motion.transitionReduced : AppTheme.Motion.transition, value: appModel.state)
     }
 }
