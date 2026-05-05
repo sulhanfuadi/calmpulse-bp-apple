@@ -83,6 +83,17 @@ See detailed transition rules in [`docs/STATE_MACHINE.md`](docs/STATE_MACHINE.md
 
 ## App Screenshots
 
+<p align="center">
+  <img src="assets/screenshots/01-onboarding.png" width="220" alt="Onboarding screen" />
+  <img src="assets/screenshots/02-idle.png" width="220" alt="Idle monitoring screen" />
+  <img src="assets/screenshots/03-triggered.png" width="220" alt="Triggered alert screen" />
+</p>
+<p align="center">
+  <img src="assets/screenshots/04-breathing.png" width="220" alt="Breathing session screen" />
+  <img src="assets/screenshots/05-reflection.png" width="220" alt="Reflection input screen" />
+  <img src="assets/screenshots/06-summary.png" width="220" alt="Summary metrics screen" />
+</p>
+
 ---
 
 ## 5) Architecture (watchOS-first)
