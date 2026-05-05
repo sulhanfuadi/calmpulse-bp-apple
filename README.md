@@ -81,6 +81,31 @@ See detailed transition rules in [`docs/STATE_MACHINE.md`](docs/STATE_MACHINE.md
 
 ---
 
+## App Screenshots
+
+> Add your screenshots into `assets/screenshots/` with the exact filenames below.
+
+<p align="center">
+  <img src="assets/screenshots/01-onboarding.png" width="220" alt="Onboarding screen" />
+  <img src="assets/screenshots/02-idle.png" width="220" alt="Idle monitoring screen" />
+  <img src="assets/screenshots/03-triggered.png" width="220" alt="Triggered alert screen" />
+</p>
+<p align="center">
+  <img src="assets/screenshots/04-breathing.png" width="220" alt="Breathing session screen" />
+  <img src="assets/screenshots/05-reflection.png" width="220" alt="Reflection input screen" />
+  <img src="assets/screenshots/06-summary.png" width="220" alt="Summary metrics screen" />
+</p>
+
+Recommended capture sequence:
+- `01-onboarding.png`
+- `02-idle.png`
+- `03-triggered.png`
+- `04-breathing.png`
+- `05-reflection.png`
+- `06-summary.png`
+
+---
+
 ## 5) Architecture (watchOS-first)
 
 High-level layers:
@@ -167,11 +192,11 @@ Defined in `Domain/SessionLogEntry.swift`:
 - Swift 5.9+ toolchain (bundled with modern Xcode)
 
 ### Run (scaffold)
-Project file sudah tersedia: `CalmPulseBP.xcodeproj`.
+Project file is available at `CalmPulseBP.xcodeproj`.
 
-1. Open `CalmPulseBP.xcodeproj` di Xcode.
-2. Pilih scheme `CalmPulseBP`.
-3. Pilih simulator Apple Watch (Series 9 / Ultra 2).
+1. Open `CalmPulseBP.xcodeproj` in Xcode.
+2. Select scheme `CalmPulseBP`.
+3. Select an Apple Watch simulator (Series 9 / Ultra 2).
 4. Run app.
 
 ### CLI build check
@@ -179,7 +204,7 @@ Project file sudah tersedia: `CalmPulseBP.xcodeproj`.
 xcodebuild -project CalmPulseBP.xcodeproj -scheme CalmPulseBP -destination 'generic/platform=watchOS Simulator' build
 ```
 
-Jika gagal dengan error platform watchOS belum tersedia, install dulu watchOS platform/runtime dari Xcode Components.
+If build fails because watchOS platform is missing, install the watchOS runtime from Xcode Components.
 
 ---
 
