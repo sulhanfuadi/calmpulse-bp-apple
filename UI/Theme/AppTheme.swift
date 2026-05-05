@@ -26,6 +26,15 @@ enum AppTheme {
 
         static func stack(compact: Bool) -> CGFloat { compact ? xs : sm }
         static func horizontal(compact: Bool) -> CGFloat { compact ? sm : md }
+        static func topInset(compact: Bool) -> CGFloat { compact ? xs : sm }
+        static func bottomInset(compact: Bool) -> CGFloat { compact ? xxs : xs }
+    }
+
+    enum Layout {
+        static func topHeight(compact: Bool) -> CGFloat { compact ? 11 : 13 }
+        static func heroHeight(compact: Bool) -> CGFloat { compact ? 34 : 40 }
+        static func contentMaxHeight(compact: Bool) -> CGFloat { compact ? 60 : 74 }
+        static func actionsMaxHeight(compact: Bool) -> CGFloat { compact ? 80 : 90 }
     }
 
     enum Radius {

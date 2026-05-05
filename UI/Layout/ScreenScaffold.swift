@@ -16,20 +16,20 @@ struct ScreenScaffold<Top: View, Hero: View, Content: View, Actions: View>: View
 
                 VStack(spacing: AppTheme.Spacing.stack(compact: compact)) {
                     top
-                        .frame(height: compact ? 12 : 14)
+                        .frame(height: AppTheme.Layout.topHeight(compact: compact))
 
                     hero
-                        .frame(height: compact ? 36 : 40)
+                        .frame(height: AppTheme.Layout.heroHeight(compact: compact))
 
                     content
-                        .frame(maxHeight: compact ? 64 : 72)
+                        .frame(maxHeight: AppTheme.Layout.contentMaxHeight(compact: compact))
 
                     actions
-                        .frame(maxHeight: compact ? 84 : 92)
+                        .frame(maxHeight: AppTheme.Layout.actionsMaxHeight(compact: compact))
                 }
                 .padding(.horizontal, AppTheme.Spacing.horizontal(compact: compact))
-                .padding(.top, compact ? AppTheme.Spacing.xs : AppTheme.Spacing.sm)
-                .padding(.bottom, AppTheme.Spacing.xs)
+                .padding(.top, AppTheme.Spacing.topInset(compact: compact))
+                .padding(.bottom, AppTheme.Spacing.bottomInset(compact: compact))
             }
         }
     }

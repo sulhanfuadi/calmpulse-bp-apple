@@ -23,7 +23,7 @@ struct IdleView: View {
             }
         } actions: {
             VStack(spacing: AppTheme.Spacing.xs) {
-                CalmButton(title: "Trigger", tone: .primary, hint: "Simulasi sinyal stress") {
+                CalmButton(title: "Trigger", tone: .primary, hint: "Simulate stress signal") {
                     appModel.markTriggered()
                 }
                 CalmButton(title: "Summary", tone: .secondary, hint: "Open summary") {

@@ -12,7 +12,7 @@ struct ReflectionView: View {
             EmptyView()
         } actions: {
             VStack(spacing: AppTheme.Spacing.xs) {
-                CalmButton(title: "Calmer", tone: .primary, hint: "Catat lebih tenang") {
+                CalmButton(title: "Calmer", tone: .primary, hint: "Log calmer mood") {
                     appModel.openSummary()
                 }
                 CalmButton(title: "Still tense", tone: .secondary, hint: "Log as still tense") {
