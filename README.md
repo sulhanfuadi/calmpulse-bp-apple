@@ -155,6 +155,7 @@ Defined in `Domain/SessionLogEntry.swift`:
 - UI style guide: [`docs/UI_STYLE_GUIDE.md`](docs/UI_STYLE_GUIDE.md)
 - Accessibility baseline: [`docs/ACCESSIBILITY_BASELINE.md`](docs/ACCESSIBILITY_BASELINE.md)
 - Haptic choreography: [`docs/HAPTIC_CHOREOGRAPHY.md`](docs/HAPTIC_CHOREOGRAPHY.md)
+- UI QA checklist: [`docs/UI_QA_CHECKLIST.md`](docs/UI_QA_CHECKLIST.md)
 
 ---
 
@@ -268,3 +269,8 @@ Current UI baseline now includes:
 - explicit accessibility labels/hints for key actions,
 - reduce-motion fallback for transitions and breathing visuals,
 - documented haptic choreography intent for next-phase runtime integration.
+
+
+## 17) Monochrome Refactor v2
+
+Current UI direction is **Monochrome + Red/Green Signal System** with strict **No Scroll Screen Rule** for watch-first usability.
