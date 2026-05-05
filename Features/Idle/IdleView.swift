@@ -17,7 +17,7 @@ struct IdleView: View {
                     .font(AppTheme.Typography.subtitle(compact: false))
                     .foregroundStyle(AppTheme.ColorToken.textTertiary)
                 Text("\(appModel.baselineHR) bpm")
-                    .font(AppTheme.Typography.metric)
+                    .font(AppTheme.Typography.metric(compact: false))
                     .foregroundStyle(AppTheme.ColorToken.textPrimary)
             }
         } actions: {
