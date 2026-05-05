@@ -7,14 +7,14 @@ struct OnboardingView: View {
         ScreenScaffold {
             EmptyView()
         } hero: {
-            ScreenHeader(title: "CalmPulse BP", subtitle: "Bukan diagnosis")
+            ScreenHeader(title: "CalmPulse BP", subtitle: "Not a diagnosis")
         } content: {
             Text("Self-awareness only")
                 .font(AppTheme.Typography.subtitle(compact: true))
                 .foregroundStyle(AppTheme.ColorToken.textMuted)
                 .frame(maxWidth: .infinity)
         } actions: {
-            CalmButton(title: "Mulai", tone: .primary, hint: "Masuk mode monitoring") {
+            CalmButton(title: "Start", tone: .primary, hint: "Enter monitoring mode") {
                 appModel.goToIdle()
             }
         }

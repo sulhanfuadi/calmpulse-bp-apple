@@ -26,7 +26,7 @@ struct IdleView: View {
                 CalmButton(title: "Trigger", tone: .primary, hint: "Simulasi sinyal stress") {
                     appModel.markTriggered()
                 }
-                CalmButton(title: "Summary", tone: .secondary, hint: "Buka ringkasan") {
+                CalmButton(title: "Summary", tone: .secondary, hint: "Open summary") {
                     appModel.openSummary()
                 }
             }

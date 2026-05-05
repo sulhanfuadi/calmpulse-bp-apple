@@ -22,10 +22,10 @@ struct ScreenScaffold<Top: View, Hero: View, Content: View, Actions: View>: View
                         .frame(height: compact ? 36 : 40)
 
                     content
-                        .frame(maxHeight: compact ? 56 : 64)
+                        .frame(maxHeight: compact ? 64 : 72)
 
                     actions
-                        .frame(maxHeight: compact ? 96 : 104)
+                        .frame(maxHeight: compact ? 84 : 92)
                 }
                 .padding(.horizontal, AppTheme.Spacing.horizontal(compact: compact))
                 .padding(.top, compact ? AppTheme.Spacing.xs : AppTheme.Spacing.sm)
