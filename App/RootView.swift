@@ -22,6 +22,6 @@ struct RootView: View {
             }
         }
         .transition(reduceMotion ? .opacity : .asymmetric(insertion: .opacity.combined(with: .scale(scale: 0.985)), removal: .opacity))
-        .animation(reduceMotion ? AppTheme.Motion.transitionReduced : AppTheme.Motion.transition, value: appModel.state)
+        .animation(AppTheme.Motion.transition, value: appModel.state)
     }
 }
