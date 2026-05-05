@@ -26,5 +26,6 @@ struct ReflectionView: View {
                 }
             }
         }
+        .accessibilityElement(children: .contain)
     }
 }

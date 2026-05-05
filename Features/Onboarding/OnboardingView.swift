@@ -22,5 +22,6 @@ struct OnboardingView: View {
                 appModel.goToIdle()
             }
         }
+        .accessibilityElement(children: .contain)
     }
 }

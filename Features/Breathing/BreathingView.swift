@@ -41,5 +41,6 @@ struct BreathingView: View {
                 }
             }
         }
+        .accessibilityElement(children: .contain)
     }
 }

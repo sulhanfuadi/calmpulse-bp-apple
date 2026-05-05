@@ -22,5 +22,6 @@ struct TriggeredView: View {
                 appModel.startBreathing()
             }
         }
+        .accessibilityElement(children: .contain)
     }
 }

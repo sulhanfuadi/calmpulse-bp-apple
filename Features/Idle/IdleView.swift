@@ -30,5 +30,6 @@ struct IdleView: View {
                 }
             }
         }
+        .accessibilityElement(children: .contain)
     }
 }

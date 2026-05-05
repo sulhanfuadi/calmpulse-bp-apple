@@ -35,5 +35,6 @@ struct SummaryView: View {
                 .font(AppTheme.Typography.metric)
                 .foregroundStyle(AppTheme.ColorToken.textPrimary)
         }
+        .accessibilityElement(children: .contain)
     }
 }

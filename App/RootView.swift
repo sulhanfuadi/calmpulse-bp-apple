@@ -20,7 +20,7 @@ struct RootView: View {
                 SummaryView()
             }
         }
-        .transition(.asymmetric(insertion: .opacity.combined(with: .scale(scale: 0.98)), removal: .opacity))
-        .animation(.easeInOut(duration: 0.22), value: appModel.state)
+        .transition(.asymmetric(insertion: .opacity.combined(with: .scale(scale: 0.985)), removal: .opacity))
+        .animation(AppTheme.Motion.transition, value: appModel.state)
     }
 }
