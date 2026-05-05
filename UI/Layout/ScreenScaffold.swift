@@ -9,24 +9,27 @@ struct ScreenScaffold<Top: View, Hero: View, Content: View, Actions: View>: View
     var body: some View {
         GeometryReader { geo in
             let compact = geo.size.height < 212
-            let stack = AppTheme.Spacing.stack(compact: compact)
 
             ZStack {
                 AppTheme.background
                     .ignoresSafeArea()
 
-                VStack(spacing: stack) {
+                VStack(spacing: AppTheme.Spacing.stack(compact: compact)) {
                     top
-                        .frame(height: compact ? 14 : 16)
+                        .frame(height: compact ? 12 : 14)
+
                     hero
-                        .frame(height: compact ? 38 : 42)
+                        .frame(height: compact ? 36 : 40)
+
                     content
-                        .frame(maxHeight: compact ? 62 : 72)
+                        .frame(maxHeight: compact ? 56 : 64)
+
                     actions
-                        .frame(maxHeight: compact ? 86 : 94)
+                        .frame(maxHeight: compact ? 96 : 104)
                 }
                 .padding(.horizontal, AppTheme.Spacing.horizontal(compact: compact))
-                .padding(.vertical, compact ? AppTheme.Spacing.xs : AppTheme.Spacing.sm)
+                .padding(.top, compact ? AppTheme.Spacing.xs : AppTheme.Spacing.sm)
+                .padding(.bottom, AppTheme.Spacing.xs)
             }
         }
     }

@@ -8,6 +8,7 @@ struct CalmCard<Content: View>: View {
             content
         }
         .padding(AppTheme.Spacing.sm)
-        .calmSurface()
+        .background(AppTheme.ColorToken.bgElevated)
+        .clipShape(RoundedRectangle(cornerRadius: AppTheme.Radius.md, style: .continuous))
     }
 }

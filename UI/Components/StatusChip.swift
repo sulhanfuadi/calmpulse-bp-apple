@@ -20,15 +20,9 @@ struct StatusChip: View {
 
     var body: some View {
         Text(title)
-            .font(AppTheme.Typography.subtitle(compact: true).weight(.semibold))
-            .foregroundStyle(AppTheme.ColorToken.textPrimary)
-            .padding(.horizontal, AppTheme.Spacing.sm)
-            .padding(.vertical, AppTheme.Spacing.xxs)
-            .background(tone.color.opacity(0.26))
-            .overlay {
-                Capsule().stroke(tone.color.opacity(0.8), lineWidth: 1)
-            }
-            .clipShape(Capsule())
+            .font(AppTheme.Typography.subtitle(compact: true))
+            .foregroundStyle(AppTheme.ColorToken.textMuted)
             .frame(maxWidth: .infinity, alignment: .center)
+            .opacity(0.9)
     }
 }
