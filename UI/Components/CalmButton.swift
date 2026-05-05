@@ -8,7 +8,7 @@ enum CalmButtonTone {
     var fill: Color {
         switch self {
         case .primary: return AppTheme.ColorToken.neutralGray
-        case .secondary: return AppTheme.ColorToken.surfaceStrong
+        case .secondary: return AppTheme.ColorToken.surface
         case .ghost: return .clear
         }
     }
