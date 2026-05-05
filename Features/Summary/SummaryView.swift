@@ -5,20 +5,21 @@ struct SummaryView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "Daily Summary")
+            StatusChip(title: "Daily Summary", tone: .accent)
+        } hero: {
             ScreenHeader(
                 title: "Ringkasan Harian",
-                subtitle: "Pantau progres self-regulation kamu"
+                subtitle: "Lihat progres regulasi harian secara ringkas"
             )
-
-            CalmCard {
+        } content: {
+            CalmCard(variant: .elevated) {
                 HStack {
                     metricItem(title: "Trigger", value: "\(appModel.sessions.count)")
-                    Spacer(minLength: AppTheme.Spacing.md)
+                    Spacer(minLength: AppTheme.Spacing.lg)
                     metricItem(title: "Calming", value: "--%")
                 }
             }
-
+        } actions: {
             CalmPrimaryButton(title: "Kembali Idle") {
                 appModel.restartFlow()
             }
@@ -29,7 +30,7 @@ struct SummaryView: View {
         VStack(alignment: .leading, spacing: AppTheme.Spacing.xxs) {
             Text(title)
                 .font(AppTheme.Typography.subtitle)
-                .foregroundStyle(AppTheme.ColorToken.textSecondary)
+                .foregroundStyle(AppTheme.ColorToken.textTertiary)
             Text(value)
                 .font(AppTheme.Typography.metric)
                 .foregroundStyle(AppTheme.ColorToken.textPrimary)

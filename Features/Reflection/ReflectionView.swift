@@ -5,22 +5,25 @@ struct ReflectionView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "Post Session")
+            StatusChip(title: "Post Session", tone: .success)
+        } hero: {
             ScreenHeader(
                 title: "Setelah sesi?",
-                subtitle: "Pilih mood yang paling menggambarkan kondisi kamu"
+                subtitle: "Pilih kondisi yang paling mendekati perasaan kamu"
             )
-
-            CalmPrimaryButton(title: "Lebih Tenang") {
-                appModel.openSummary()
-            }
-
-            CalmSecondaryButton(title: "Masih Tegang") {
-                appModel.openSummary()
-            }
-
-            CalmSecondaryButton(title: "Lewati") {
-                appModel.openSummary()
+        } content: {
+            EmptyView()
+        } actions: {
+            VStack(spacing: AppTheme.Spacing.sm) {
+                CalmPrimaryButton(title: "Lebih Tenang") {
+                    appModel.openSummary()
+                }
+                CalmSecondaryButton(title: "Masih Tegang") {
+                    appModel.openSummary()
+                }
+                CalmGhostButton(title: "Lewati") {
+                    appModel.openSummary()
+                }
             }
         }
     }
