@@ -18,6 +18,9 @@ enum AppTheme {
         static let textSecondary = Color(red: 0.81, green: 0.88, blue: 0.97)
         static let textTertiary = Color(red: 0.65, green: 0.74, blue: 0.87)
 
+        static let textPrimaryHighLegibility = Color.white
+        static let textSecondaryHighLegibility = Color.white.opacity(0.92)
+
         static let accent = Color(red: 0.51, green: 0.82, blue: 1.00)
         static let accentStrong = Color(red: 0.41, green: 0.74, blue: 1.00)
         static let accentSoft = Color(red: 0.48, green: 0.92, blue: 0.95)
@@ -33,6 +36,10 @@ enum AppTheme {
         static let md: CGFloat = 12
         static let lg: CGFloat = 16
         static let xl: CGFloat = 20
+
+        static func dynamic(compact: Bool) -> CGFloat {
+            compact ? sm : md
+        }
     }
 
     enum Radius {
@@ -59,15 +66,36 @@ enum AppTheme {
     enum Motion {
         static let quick = Animation.easeOut(duration: 0.16)
         static let transition = Animation.spring(response: 0.28, dampingFraction: 0.86)
+        static let transitionReduced = Animation.easeOut(duration: 0.14)
         static let breathing = Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true)
+        static let breathingReduced = Animation.easeInOut(duration: 2.8).repeatForever(autoreverses: true)
     }
 
     enum Typography {
-        static let title = Font.system(.headline, design: .rounded).weight(.semibold)
-        static let subtitle = Font.system(.caption2, design: .rounded)
-        static let body = Font.system(.body, design: .rounded)
-        static let button = Font.system(.callout, design: .rounded).weight(.semibold)
-        static let metric = Font.system(.title3, design: .rounded).weight(.semibold)
+        static func title(compact: Bool) -> Font {
+            compact ? Font.system(.subheadline, design: .rounded).weight(.semibold)
+                    : Font.system(.headline, design: .rounded).weight(.semibold)
+        }
+
+        static func subtitle(compact: Bool) -> Font {
+            compact ? Font.system(size: 10, weight: .regular, design: .rounded)
+                    : Font.system(.caption2, design: .rounded)
+        }
+
+        static func body(compact: Bool) -> Font {
+            compact ? Font.system(.footnote, design: .rounded)
+                    : Font.system(.body, design: .rounded)
+        }
+
+        static func button(compact: Bool) -> Font {
+            compact ? Font.system(.footnote, design: .rounded).weight(.semibold)
+                    : Font.system(.callout, design: .rounded).weight(.semibold)
+        }
+
+        static func metric(compact: Bool) -> Font {
+            compact ? Font.system(.title3, design: .rounded).weight(.semibold)
+                    : Font.system(.title2, design: .rounded).weight(.semibold)
+        }
     }
 
     static var backgroundGradient: LinearGradient {
