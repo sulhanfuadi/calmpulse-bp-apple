@@ -7,37 +7,32 @@ struct BreathingView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "Breathing Session", tone: .accent)
+            StatusChip(title: "BREATH", tone: .neutral)
         } hero: {
-            ScreenHeader(
-                title: "Tarik • Hembus",
-                subtitle: "Ikuti ritme pelan dan stabil selama 60 detik"
-            )
+            ScreenHeader(title: "In • Out", subtitle: "60s")
         } content: {
             ZStack {
                 Circle()
-                    .fill(AppTheme.ColorToken.accentSoft.opacity(0.14))
-                    .frame(width: 90, height: 90)
-                    .scaleEffect(pulse ? (reduceMotion ? 1.03 : 1.10) : 0.90)
+                    .stroke(AppTheme.ColorToken.neutralGray, lineWidth: 6)
+                    .frame(width: 78, height: 78)
 
                 Circle()
-                    .stroke(AppTheme.ColorToken.accent.opacity(0.55), lineWidth: 2)
-                    .frame(width: 72, height: 72)
-                    .scaleEffect(pulse ? (reduceMotion ? 1.01 : 1.04) : 0.97)
+                    .stroke(AppTheme.ColorToken.successGreen.opacity(0.92), lineWidth: 4)
+                    .frame(width: 62, height: 62)
+                    .scaleEffect(pulse ? (reduceMotion ? 1.02 : 1.10) : 0.92)
 
-                Text("60s")
-                    .font(AppTheme.Typography.metric(compact: false))
+                Text("60")
+                    .font(AppTheme.Typography.metric(compact: true))
                     .foregroundStyle(AppTheme.ColorToken.textPrimary)
             }
-            .frame(maxWidth: .infinity)
             .onAppear { pulse = true }
             .animation(reduceMotion ? AppTheme.Motion.breathingReduced : AppTheme.Motion.breathing, value: pulse)
         } actions: {
-            VStack(spacing: AppTheme.Spacing.sm) {
-                CalmPrimaryButton(title: "Selesai", accessibilityHint: "Akhiri sesi breathing dan lanjut refleksi") {
+            VStack(spacing: AppTheme.Spacing.xs) {
+                CalmButton(title: "Done", tone: .primary, hint: "Lanjut refleksi") {
                     appModel.openReflection()
                 }
-                CalmSecondaryButton(title: "Lewati", accessibilityHint: "Lewati sesi dan lanjut refleksi") {
+                CalmButton(title: "Skip", tone: .ghost, hint: "Lewati sesi") {
                     appModel.openReflection()
                 }
             }

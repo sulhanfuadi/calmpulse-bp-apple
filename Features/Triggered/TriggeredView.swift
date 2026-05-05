@@ -5,23 +5,15 @@ struct TriggeredView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "Stress Signal", tone: .warning)
+            StatusChip(title: "ALERT", tone: .danger)
         } hero: {
-            ScreenHeader(
-                title: "Perlu Jeda",
-                subtitle: "Ambil satu menit untuk breathing flow yang lebih tenang."
-            )
+            ScreenHeader(title: "Stress Up", subtitle: "Take 60s")
         } content: {
-            CalmCard(variant: .compact) {
-                Text("Prioritas sekarang: turunkan intensitas respons stres secara perlahan.")
-                    .font(AppTheme.Typography.subtitle(compact: false))
-                    .foregroundStyle(AppTheme.ColorToken.textSecondary)
-            }
+            EmptyView()
         } actions: {
-            CalmPrimaryButton(title: "Mulai Breathing 60s") {
+            CalmButton(title: "Start Breathing", tone: .primary, hint: "Mulai sesi breathing") {
                 appModel.startBreathing()
             }
         }
-        .accessibilityElement(children: .contain)
     }
 }

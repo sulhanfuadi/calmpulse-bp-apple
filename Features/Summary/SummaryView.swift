@@ -5,41 +5,30 @@ struct SummaryView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "Daily Summary", tone: .accent)
+            StatusChip(title: "SUMMARY", tone: .success)
         } hero: {
-            ScreenHeader(
-                title: "Ringkasan Harian",
-                subtitle: "Lihat progres regulasi harian secara ringkas"
-            )
+            ScreenHeader(title: "Today", subtitle: nil)
         } content: {
-            CalmCard(variant: .elevated) {
-                Text("Metrik harian")
-                    .font(AppTheme.Typography.subtitle(compact: false))
-                    .foregroundStyle(AppTheme.ColorToken.textTertiary)
-
-                HStack {
-                    metricItem(title: "Trigger", value: "\(appModel.sessions.count)")
-                    Spacer(minLength: AppTheme.Spacing.lg)
-                    metricItem(title: "Calming", value: "--%")
-                }
+            HStack {
+                metric(title: "TRG", value: "\(appModel.sessions.count)")
+                Spacer(minLength: AppTheme.Spacing.md)
+                metric(title: "CALM", value: "--")
             }
+            .padding(.horizontal, AppTheme.Spacing.xs)
         } actions: {
-            CalmPrimaryButton(
-                title: "Kembali Idle",
-                accessibilityHint: "Kembali ke mode monitoring"
-            ) {
+            CalmButton(title: "Back Idle", tone: .primary, hint: "Kembali monitoring") {
                 appModel.restartFlow()
             }
         }
     }
 
-    private func metricItem(title: String, value: String) -> some View {
+    private func metric(title: String, value: String) -> some View {
         VStack(alignment: .leading, spacing: AppTheme.Spacing.xxs) {
             Text(title)
-                .font(AppTheme.Typography.subtitle(compact: false))
-                .foregroundStyle(AppTheme.ColorToken.textTertiary)
+                .font(AppTheme.Typography.subtitle(compact: true))
+                .foregroundStyle(AppTheme.ColorToken.textMuted)
             Text(value)
-                .font(AppTheme.Typography.metric(compact: false))
+                .font(AppTheme.Typography.metric(compact: true))
                 .foregroundStyle(AppTheme.ColorToken.textPrimary)
         }
         .accessibilityElement(children: .ignore)

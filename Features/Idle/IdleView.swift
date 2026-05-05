@@ -5,31 +5,32 @@ struct IdleView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "Monitoring Aktif", tone: .success)
+            StatusChip(title: "IDLE", tone: .success)
         } hero: {
-            ScreenHeader(
-                title: "Mode Idle",
-                subtitle: "Sistem siap memberi nudge saat sinyal stres meningkat"
-            )
+            ScreenHeader(title: "Monitoring", subtitle: "Stable")
         } content: {
-            CalmCard {
-                Text("Baseline Heart Rate")
-                    .font(AppTheme.Typography.subtitle(compact: false))
-                    .foregroundStyle(AppTheme.ColorToken.textTertiary)
-                Text("\(appModel.baselineHR) bpm")
-                    .font(AppTheme.Typography.metric(compact: false))
+            HStack(alignment: .center) {
+                Text("HR")
+                    .font(AppTheme.Typography.subtitle(compact: true))
+                    .foregroundStyle(AppTheme.ColorToken.textMuted)
+                Spacer()
+                Text("\(appModel.baselineHR)")
+                    .font(AppTheme.Typography.metric(compact: true))
                     .foregroundStyle(AppTheme.ColorToken.textPrimary)
+                Text("bpm")
+                    .font(AppTheme.Typography.subtitle(compact: true))
+                    .foregroundStyle(AppTheme.ColorToken.textSecondary)
             }
+            .padding(.horizontal, AppTheme.Spacing.xs)
         } actions: {
-            VStack(spacing: AppTheme.Spacing.sm) {
-                CalmPrimaryButton(title: "Simulasi Trigger") {
+            VStack(spacing: AppTheme.Spacing.xs) {
+                CalmButton(title: "Trigger", tone: .primary, hint: "Simulasi stress signal") {
                     appModel.markTriggered()
                 }
-                CalmSecondaryButton(title: "Lihat Ringkasan") {
+                CalmButton(title: "Summary", tone: .secondary, hint: "Buka ringkasan") {
                     appModel.openSummary()
                 }
             }
         }
-        .accessibilityElement(children: .contain)
     }
 }

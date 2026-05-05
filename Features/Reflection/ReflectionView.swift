@@ -5,27 +5,23 @@ struct ReflectionView: View {
 
     var body: some View {
         ScreenScaffold {
-            StatusChip(title: "Post Session", tone: .success)
+            StatusChip(title: "CHECK", tone: .neutral)
         } hero: {
-            ScreenHeader(
-                title: "Setelah sesi?",
-                subtitle: "Pilih kondisi yang paling mendekati perasaan kamu"
-            )
+            ScreenHeader(title: "How now?", subtitle: nil)
         } content: {
             EmptyView()
         } actions: {
-            VStack(spacing: AppTheme.Spacing.sm) {
-                CalmPrimaryButton(title: "Lebih Tenang") {
+            VStack(spacing: AppTheme.Spacing.xs) {
+                CalmButton(title: "Calmer", tone: .primary, hint: "Catat lebih tenang") {
                     appModel.openSummary()
                 }
-                CalmSecondaryButton(title: "Masih Tegang") {
+                CalmButton(title: "Still Tight", tone: .secondary, hint: "Catat masih tegang") {
                     appModel.openSummary()
                 }
-                CalmGhostButton(title: "Lewati") {
+                CalmButton(title: "Skip", tone: .ghost, hint: "Lewati refleksi") {
                     appModel.openSummary()
                 }
             }
         }
-        .accessibilityElement(children: .contain)
     }
 }
