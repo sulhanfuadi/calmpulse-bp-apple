@@ -14,7 +14,7 @@ struct IdleView: View {
         } content: {
             CalmCard {
                 Text("Baseline Heart Rate")
-                    .font(AppTheme.Typography.subtitle)
+                    .font(AppTheme.Typography.subtitle(compact: false))
                     .foregroundStyle(AppTheme.ColorToken.textTertiary)
                 Text("\(appModel.baselineHR) bpm")
                     .font(AppTheme.Typography.metric)

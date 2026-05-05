@@ -20,7 +20,7 @@ struct StatusChip: View {
 
     var body: some View {
         Text(title)
-            .font(AppTheme.Typography.subtitle.weight(.semibold))
+            .font(AppTheme.Typography.subtitle(compact: false).weight(.semibold))
             .foregroundStyle(AppTheme.ColorToken.textPrimary)
             .padding(.horizontal, AppTheme.Spacing.sm)
             .padding(.vertical, AppTheme.Spacing.xxs)

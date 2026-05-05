@@ -14,7 +14,7 @@ struct TriggeredView: View {
         } content: {
             CalmCard(variant: .compact) {
                 Text("Prioritas sekarang: turunkan intensitas respons stres secara perlahan.")
-                    .font(AppTheme.Typography.subtitle)
+                    .font(AppTheme.Typography.subtitle(compact: false))
                     .foregroundStyle(AppTheme.ColorToken.textSecondary)
             }
         } actions: {

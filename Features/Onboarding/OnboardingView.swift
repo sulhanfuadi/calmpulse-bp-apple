@@ -14,7 +14,7 @@ struct OnboardingView: View {
         } content: {
             CalmCard(variant: .elevated) {
                 Text("Bukan alat diagnosis atau layanan darurat. Gunakan sebagai pendamping self-awareness.")
-                    .font(AppTheme.Typography.subtitle)
+                    .font(AppTheme.Typography.subtitle(compact: false))
                     .foregroundStyle(AppTheme.ColorToken.textSecondary)
             }
         } actions: {
