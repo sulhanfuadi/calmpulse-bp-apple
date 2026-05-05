@@ -3,41 +3,38 @@ import SwiftUI
 struct SummaryView: View {
     @EnvironmentObject private var appModel: AppStateModel
 
-    private let screenshotMetrics = SummaryDemoMetrics(
-        triggerCount: 4,
-        calmCompletionRate: 78,
-        averageRecoveryMinutes: 2.4,
-        lastSessionMood: "Calmer"
-    )
-
-    private let liveDemoMetrics = SummaryDemoMetrics(
-        triggerCount: 2,
-        calmCompletionRate: 64,
-        averageRecoveryMinutes: 3.1,
-        lastSessionMood: "Steady"
-    )
-
     var body: some View {
         GeometryReader { geo in
             let compact = geo.size.height < 212
-            let metrics = appModel.screenshotModeEnabled ? screenshotMetrics : liveDemoMetrics
 
             ScreenScaffold {
                 StatusChip(title: "SUMMARY", tone: .success)
             } hero: {
-                ScreenHeader(title: "Today", subtitle: compact ? nil : "Demo snapshot")
+                ScreenHeader(title: "Today", subtitle: compact ? nil : "Live session metrics")
             } content: {
-                VStack(alignment: .leading, spacing: compact ? AppTheme.Spacing.xxs : AppTheme.Spacing.xs) {
-                    HStack {
-                        metric(title: "Triggers", value: "\(metrics.triggerCount)", compact: compact)
-                        Spacer(minLength: AppTheme.Spacing.sm)
-                        metric(title: "Calm", value: "\(metrics.calmCompletionRate)%", compact: compact)
+                if let metrics = appModel.summaryMetrics() {
+                    VStack(alignment: .leading, spacing: compact ? AppTheme.Spacing.xxs : AppTheme.Spacing.xs) {
+                        HStack {
+                            metric(title: "Triggers", value: "\(metrics.triggerCount)", compact: compact)
+                            Spacer(minLength: AppTheme.Spacing.sm)
+                            metric(title: "Calm", value: "\(metrics.calmCompletionRate)%", compact: compact)
+                        }
+                        HStack {
+                            metric(title: "Avg Rec", value: String(format: "%.1fm", metrics.averageRecoveryMinutes), compact: compact)
+                            Spacer(minLength: AppTheme.Spacing.sm)
+                            metric(title: "Mood", value: metrics.lastSessionMood, compact: compact)
+                        }
                     }
-                    HStack {
-                        metric(title: "Avg Rec", value: String(format: "%.1fm", metrics.averageRecoveryMinutes), compact: compact)
-                        Spacer(minLength: AppTheme.Spacing.sm)
-                        metric(title: "Mood", value: metrics.lastSessionMood, compact: compact)
+                } else {
+                    VStack(alignment: .leading, spacing: AppTheme.Spacing.xxs) {
+                        Text("No sessions yet")
+                            .font(AppTheme.Typography.subtitle(compact: compact))
+                            .foregroundStyle(AppTheme.ColorToken.textPrimary)
+                        Text("Run one breathing flow to generate your first summary.")
+                            .font(AppTheme.Typography.body(compact: compact))
+                            .foregroundStyle(AppTheme.ColorToken.textMuted)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
             } actions: {
                 CalmButton(title: "Back", tone: .primary, hint: "Return to idle monitoring") {
@@ -61,11 +58,4 @@ struct SummaryView: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text("\(title) \(value)"))
     }
-}
-
-private struct SummaryDemoMetrics {
-    let triggerCount: Int
-    let calmCompletionRate: Int
-    let averageRecoveryMinutes: Double
-    let lastSessionMood: String
 }

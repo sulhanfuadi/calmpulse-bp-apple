@@ -12,6 +12,7 @@ public struct SessionLogEntry: Codable, Identifiable {
     public var sessionCompleted: Bool
     public var moodAfter: ReflectionMood?
     public var optionalBP: OptionalBP?
+    public var recoveryDurationSeconds: Int?
 
     public init(
         id: UUID = UUID(),
@@ -19,7 +20,8 @@ public struct SessionLogEntry: Codable, Identifiable {
         triggerReason: TriggerReason,
         sessionCompleted: Bool,
         moodAfter: ReflectionMood?,
-        optionalBP: OptionalBP?
+        optionalBP: OptionalBP?,
+        recoveryDurationSeconds: Int?
     ) {
         self.id = id
         self.timestamp = timestamp
@@ -27,5 +29,6 @@ public struct SessionLogEntry: Codable, Identifiable {
         self.sessionCompleted = sessionCompleted
         self.moodAfter = moodAfter
         self.optionalBP = optionalBP
+        self.recoveryDurationSeconds = recoveryDurationSeconds
     }
 }

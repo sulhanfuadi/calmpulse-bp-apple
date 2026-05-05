@@ -153,6 +153,11 @@ open CalmPulseBP.xcodeproj
 - Reflection and summary screens render correctly
 - Documentation links resolve correctly
 
+## Testing Status
+- Functional validation is currently performed on watchOS Simulator only
+- Physical Apple Watch testing has not been completed yet
+- Current results should be interpreted as Scaffold/MVP-stage validation
+
 ## Current v1 Boundaries
 - Heuristic trigger logic only (non-clinical)
 - No persistent storage in current scaffold
