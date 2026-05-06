@@ -43,7 +43,7 @@ Research scope note: this is a small, early-stage discovery baseline and is not 
 5. **Reflection Pending** — user records post-session mood.
 6. **Summary** — app shows live metrics derived from recorded sessions.
 
-Detailed transition rules: `docs/STATE_MACHINE.md`
+Detailed transition rules: [docs/STATE_MACHINE.md](docs/STATE_MACHINE.md)
 
 ## Current MVP Capabilities
 - watchOS-first SwiftUI app scaffold with six routed states
@@ -102,14 +102,14 @@ Detailed transition rules: `docs/STATE_MACHINE.md`
   - `optionalBP` (nullable, planned for v1.1)
 
 ### Key Documentation
-- Product requirements: `docs/PRD.md`
-- State transitions: `docs/STATE_MACHINE.md`
-- Technical roadmap: `docs/TECH_PLAN.md`
-- Safety/compliance notes: `docs/COMPLIANCE_NOTES.md`
-- Accessibility baseline: `docs/ACCESSIBILITY_BASELINE.md`
-- UI style guide: `docs/UI_STYLE_GUIDE.md`
-- Haptic choreography: `docs/HAPTIC_CHOREOGRAPHY.md`
-- UI QA checklist: `docs/UI_QA_CHECKLIST.md`
+- Product requirements: [docs/PRD.md](docs/PRD.md)
+- State transitions: [docs/STATE_MACHINE.md](docs/STATE_MACHINE.md)
+- Technical roadmap: [docs/TECH_PLAN.md](docs/TECH_PLAN.md)
+- Safety/compliance notes: [docs/COMPLIANCE_NOTES.md](docs/COMPLIANCE_NOTES.md)
+- Accessibility baseline: [docs/ACCESSIBILITY_BASELINE.md](docs/ACCESSIBILITY_BASELINE.md)
+- UI style guide: [docs/UI_STYLE_GUIDE.md](docs/UI_STYLE_GUIDE.md)
+- Haptic choreography: [docs/HAPTIC_CHOREOGRAPHY.md](docs/HAPTIC_CHOREOGRAPHY.md)
+- UI QA checklist: [docs/UI_QA_CHECKLIST.md](docs/UI_QA_CHECKLIST.md)
 
 ## Local Run
 ### Prerequisites
