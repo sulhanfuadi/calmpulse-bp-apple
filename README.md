@@ -2,8 +2,31 @@
 
 CalmPulse BP is a watch-first behavioral companion for young adults with hypertension. It helps users notice stress signals, run short guided breathing, and reflect after each session to build a repeatable self-regulation habit.
 
+## Why This Problem Matters
+Many young adults with hypertension do not struggle only with long-term health plans—they struggle with **short stress spikes** during classes, work blocks, and commutes. In those moments, the key issue is timing: people often realize they are overwhelmed **after** the peak has passed, not during the escalation window when a micro-intervention would be most useful.
+
+CalmPulse BP focuses on that missing window with a low-friction watch flow: notice → pause → breathe → reflect.
+
+## Founder Motivation
+I built this from a bottom-up perspective because I have also experienced hypertension patterns linked to chronic stress and poor rest. That lived experience shaped the product direction: instead of starting with a complex clinical dashboard, this MVP starts with practical moment-to-moment behavior support that is realistic to use in daily life.
+
 > **Medical Safety Notice**
 > CalmPulse BP is **not a diagnostic tool**, **not an emergency service**, and **does not replace professional medical care**.
+
+## User Research Insights
+Research context for this MVP is early-stage and practical: lightweight conversations and observation-based feedback from young adults with stress-heavy routines, used to prioritize intervention flow and watch usability.
+
+Key findings and product decisions:
+- **Finding:** users miss the stress peak moment during routine activities.
+  **Decision:** add a direct trigger prompt that encourages immediate pause.
+- **Finding:** users are more likely to complete very short interventions.
+  **Decision:** set a brief guided breathing session (target 60 seconds).
+- **Finding:** users need a simple way to capture “how I feel after”.
+  **Decision:** include quick reflection mood input after each session.
+- **Finding:** users respond better to lightweight progress signals than dense charts.
+  **Decision:** provide compact daily summary metrics from session logs.
+
+Research scope note: this is a small, early-stage discovery baseline and is not intended as clinical evidence.
 
 ## Project Snapshot
 - **Type:** watchOS-first accessibility and behavior-support MVP
